@@ -18,7 +18,7 @@ body {
 
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, h5, h6 {
     font-family: "Inria Sans", sans-serif;
 }
 
@@ -37,9 +37,74 @@ p {
     border-radius: 50px;
 }
 
+.btn-second{
+    background-color: var(--branco-secundario);
+    color: var(--vermelho-claro);
+    font-weight: bold;
+    border: none;
+    width: 100%;
+    border-radius: 50px;
+}
+
+
 .label-geral{
     color: var(--branco-primario);
     margin-bottom: 20px;
     font-size: 1rem;
     font-weight: 600;
+}
+
+/* navbar */
+
+.navbar.navbar-light.bg-light {
+    background: rgb(40, 40, 50);
+    background: linear-gradient(0deg, rgba(40, 40, 50, 1) 0%, rgba(70, 70, 86, 1) 100%) !important;
+  }
+
+.container-fluid{
+    padding: 20px 0 20px 0;
+}
+
+.navbar-brand img{
+    width: 50px;
+    margin-left: 82px;
+}
+
+
+spantitle{
+    color: var(--branco-primario);
+}
+
+.brand-title {
+    font-weight: 600;
+    color: var(--branco-secundario);
+    margin-left: 5px;
+}
+
+.link{
+    color: var(--branco-secundario);
+    padding: 0 20px 0 20px;
+}
+
+.btn-area{
+    margin-right: 87px;
+}
+
+.btn-leave {
+    width: 90px;
+    height: 40px;
+    font-size: large;
+}
+
+.custom-toggler-margin{
+    margin-right: 80px;
+}
+
+.navbar-toggler {
+    border-color: var(--branco-secundario) !important; 
+    color: var(--branco-primario) !important;
+  }
+
+.navbar-toggler-icon {
+background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
 }
