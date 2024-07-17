@@ -12,10 +12,24 @@
     box-sizing: border-box;
 }
 
+
 body {
     font-family: "Inria Sans", sans-serif;
     font-size: 16px;
+}
 
+body::-webkit-scrollbar {
+    width: 10px;               /* width of the entire scrollbar */
+  }
+  
+body::-webkit-scrollbar-track {
+background: #34343F;        /* color of the tracking area */
+}
+  
+body::-webkit-scrollbar-thumb {
+background-color: var(--branco-primario);    /* color of the scroll thumb */
+border-radius: 20px;       /* roundness of the scroll thumb */
+border: 3px solid  #34343F;;  /* creates padding around scroll thumb */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -62,7 +76,7 @@ p {
   }
 
 .container-fluid{
-    padding: 20px 0 20px 0;
+    padding: 10px 0 10px 0;
 }
 
 .navbar-brand img{
