@@ -1,47 +1,83 @@
 @import url('base.css');
 
-main {
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
-    height: auto;
+body{
     min-height: 100vh;
+    height: auto;
     background: rgb(40, 40, 50);
     background: linear-gradient(0deg, rgba(40, 40, 50, 1) 0%, rgba(70, 70, 86, 1) 100%) !important;
 }
 
-.section1{
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    min-height: 100vh;
+    height: auto;
+}
+
+.section1 {
     width: 100%;
     min-height: 25vh;
     height: auto;
 }
 
-.section2{
-    width: 100%;
-    min-height: 25vh;
-    height: auto;
-    background-color: rgb(119,24,30, 0.40);
+.content {
+    padding: 0 50px 0 50px;
+    text-align: justify;
 }
 
-.section3{
+.title {
     width: 100%;
-    min-height: 25vh;
-    height: auto;
-    background-color: rgb(119,24,30, 0.40);
+    color: var(--branco-secundario);
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
 }
 
-.section4{
+span {
+    color: var(--branco-primario);
+}
+
+.section2 {
     width: 100%;
     min-height: 25vh;
     height: auto;
-    background-color: rgb(119,24,30, 0.40);
+    background-color: rgb(119, 24, 30, 0.40);
+}
+
+.section3 {
+    width: 100%;
+    min-height: 25vh;
+    height: auto;
+    background-color: rgb(119, 24, 30, 0.40);
+}
+
+.section4 {
+    width: 100%;
+    min-height: 25vh;
+    height: auto;
+    background-color: rgb(119, 24, 30, 0.40);
 }
 
 @media (width > 1024px) {
+    body {
+        min-height: 100vh;
+        height: auto;
+    }
+
+    hr {
+        width: 2px;
+        height: 100vh;
+        background: var(--branco-primario);
+        opacity: 1 !important;
+        margin-block-start: 0 !important;
+        margin-block-end: 0 !important;
+    }
+
     main {
         flex-direction: row;
         width: 100%;
-        min-height: 90vh;
+        min-height: 100vh;
         height: auto;
     }
 
@@ -49,22 +85,21 @@ main {
         width: 25%;
     }
 
-    .section1 .content{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 50px;
-        text-align: justify;
+    .content {
+        transform: translateY(10%);
     }
 
-    .some-text{
+    .some-text {
         color: var(--branco-secundario);
         font-size: larger;
+        overflow: hidden;
+        overflow-y:scroll;
+        max-height: 700px;
     }
 
     .section2 {
         width: 25%;
-       
+
     }
 
     .section3 {
