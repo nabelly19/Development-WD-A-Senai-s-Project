@@ -34,6 +34,7 @@ span {
     padding: 0 50px 0 50px;
     text-align: justify;
     color: var(--branco-primario);
+    cursor: pointer;
 }
 
 .content-description {
@@ -46,7 +47,7 @@ span {
     font-size: 5rem;
 }
 
-.btn-access{
+.btn-access {
     width: 150px;
     height: 45px;
     font-size: large;
@@ -79,6 +80,35 @@ span {
     background-color: rgb(119, 24, 30, 0.30);
 }
 
+section {
+    overflow: hidden;
+}
+
+section:hover {
+    transition: 0.5s;
+    background-color: rgba(119, 24, 30, 0.062);
+}
+
+section .title p,
+section .content .text,
+section .content .bi,
+section .content .btn-access {
+    transition: transform 0.5s;
+}
+
+section:hover .title p,
+section:hover .content .text,
+section:hover .content .bi,
+section:hover .content .btn-access {
+    transform: scale(1.1);
+}
+
+main:hover .row1,
+main:hover .row2 {
+  height: 100vh;
+}
+
+
 @media (width > 1024px) {
     body {
         min-height: 100vh;
@@ -87,11 +117,12 @@ span {
 
     hr {
         width: 2px;
-        height: 100vh;
+        height: 50vh;
         background: var(--branco-primario);
         opacity: 1 !important;
         margin-block-start: 0 !important;
         margin-block-end: 0 !important;
+        transition: height 0.5s;
     }
 
     main {
@@ -119,12 +150,15 @@ span {
         overflow: hidden;
         overflow-y: scroll;
         max-height: 700px;
-        margin-top: 10px;
         padding: 0 50px 0 50px;
     }
 
-    .content-description{
-        margin-top: 15px ;
+    .bi {
+        font-size: 6rem;
+    }
+
+    .text {
+        min-height: 160px;
     }
 
     .section2 {
