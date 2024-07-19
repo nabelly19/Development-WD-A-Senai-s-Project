@@ -60,6 +60,12 @@ p {
     border: none;
     width: 100%;
     border-radius: 50px;
+    transition: 0.5s;
+}
+
+.btn-second:hover{
+    background-color: var(--branco-primario);
+    color:var(--cinza-escuro)
 }
 
 
@@ -100,6 +106,12 @@ spantitle{
 .link{
     color: var(--branco-secundario);
     padding: 0 20px 0 20px;
+    transition: 0.3s;
+}
+
+.link:hover{
+    color: var(--branco-primario);
+    font-weight: bold;
 }
 
 .btn-area{

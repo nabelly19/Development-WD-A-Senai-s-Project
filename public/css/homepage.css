@@ -104,7 +104,8 @@ section:hover .content .btn-access {
 }
 
 main:hover .row1,
-main:hover .row2 {
+main:hover .row2,
+main:hover .row3 {
   height: 100vh;
 }
 

@@ -151,7 +151,7 @@ input:hover {
     /* Para deixar espaço para o ícone dentro do campo */
 }
 
-.btn-area {
+.btn-area-second {
     width: 45%;
 }
 
@@ -254,7 +254,7 @@ input:hover {
         transform: translateY(41%);
     }
 
-    .btn-area {
+    .btn-area-second {
         width: 45%;
     }
 
