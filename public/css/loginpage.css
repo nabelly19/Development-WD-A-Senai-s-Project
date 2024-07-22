@@ -39,7 +39,6 @@ span {
 .content {
     width: 100%;
     text-align: center;
-    transform: translateY(-40%);
 }
 
 .subtitle {
