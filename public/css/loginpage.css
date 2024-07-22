@@ -16,7 +16,7 @@ main {
 
 .section1 {
     width: 100%;
-    min-height: 40vh;
+    min-height: 30vh;
     height: auto;
     background: rgb(40, 40, 50);
     background: linear-gradient(0deg, rgba(40, 40, 50, 1) 0%, rgba(70, 70, 86, 1) 100%);
@@ -24,7 +24,7 @@ main {
 }
 
 .title {
-    transform: translateY(-90%);
+    transform: translateY(-100%);
     width: 100%;
     color: var(--branco-secundario);
     text-align: center;
@@ -39,7 +39,7 @@ span {
 .content {
     width: 100%;
     text-align: center;
-    transform: translateY(-10%);
+    transform: translateY(-40%);
 }
 
 .subtitle {
@@ -53,7 +53,7 @@ span {
 
 .section2 {
     width: 100%;
-    min-height: 90vh;
+    min-height: 70vh;
     background: #34343F;
     height: auto;
 }
