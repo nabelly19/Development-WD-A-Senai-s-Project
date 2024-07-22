@@ -10,9 +10,8 @@ main {
     min-height: 100vh;
 }
 
-.wave-content{
+.wave-container{
     display: none;
-   
 }
 
 .section1 {
@@ -25,11 +24,11 @@ main {
 }
 
 .title {
-    margin-top: 30px;
+    transform: translateY(-90%);
     width: 100%;
     color: var(--branco-secundario);
     text-align: center;
-    font-size: 5rem;
+    font-size: small;
     font-weight: 600;
 }
 
@@ -40,29 +39,28 @@ span {
 .content {
     width: 100%;
     text-align: center;
+    transform: translateY(-10%);
 }
 
 .subtitle {
-    padding: 0 250px 0 250px;
-    color: var(--branco-primario);
-    font-size: 20px;
+    display: none;
 }
 
 .img-logo-type {
-    width: 200px;
+    width: 100px;
     margin-bottom: 50px;
 }
 
 .section2 {
     width: 100%;
-    min-height: 60vh;
+    min-height: 90vh;
     background: #34343F;
     height: auto;
 }
 
 .content_form {
     display: flex;
-    transform: translateY(25%);
+    transform: translateY(10%);
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
@@ -108,7 +106,7 @@ input:hover {
     border-style: none;
     border-radius: 30px;
     padding: 0px 20px;
-    width: 500px;
+    width: 250px;
     height: 55px;
     color: #111111;
     font-size: 1rem;
@@ -157,6 +155,7 @@ input:hover {
 
 .btn-login {
     margin-top: 60px;
+    margin-bottom: 60px;
     height: 55px;
 }
 
@@ -180,6 +179,10 @@ input:hover {
         width: 100%;
         min-height: 100vh;
         height: auto;
+    }
+
+    .wave-container{
+        display: flex;
     }
 
     .wave {
@@ -229,6 +232,22 @@ input:hover {
             transform: translateX(0);
         }
     }
+    
+    .label-login {
+        margin-right: 80%;
+        margin-top: 10%;
+    }
+    
+    .login {
+        background-color: rgba(222, 231, 231, 0.70);
+        width: 500px;
+    }
+    
+    .esquecer_senha {
+        display: flex;
+        margin-left: 30%;
+        color: aliceblue;
+    }
 
     .section1 {
         width: 40%;
@@ -236,14 +255,20 @@ input:hover {
 
     .title {
         margin-top: 150px;
+        font-size: 5rem;
+        transform: translateY(20%);
     }
 
     .subtitle {
-        padding: 0 150px 0 150px;
+        display: flex;
+        font-size: 20px;
+        margin-top: 70px;
+        color: var(--branco-primario);
+        padding: 0 180px 0 180px;
     }
 
     .img-logo-type {
-        width: 220px;
+        width: 280px;
     }
 
     .section2 {
