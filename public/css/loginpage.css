@@ -299,3 +299,26 @@ input:hover {
         font-size: 15px;
     }
 }
+
+@media (height < 1500px) {
+    .title {
+        transform: translateY(-70%);
+    }
+
+    .content_form {
+        transform: translateY(22%);
+    }
+
+    .subtitle {
+        display: flex;
+        font-size: 20px;
+        color: var(--branco-primario);
+        padding: 0 100px 0 100px;
+    }
+
+    .content {
+        transform: translateY(-30%);
+    }
+
+
+}
