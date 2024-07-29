@@ -37,12 +37,14 @@ span {
 }
 
 .content {
+    transform: translateY(-10%);
     width: 100%;
     text-align: center;
 }
 
 .subtitle {
-    display: none;
+    color: var(--branco-primario);
+    font-size: 10px;
 }
 
 .img-logo-type {
@@ -52,7 +54,7 @@ span {
 
 .section2 {
     width: 100%;
-    min-height: 70vh;
+    min-height: 100vh;
     background: #34343F;
     height: auto;
 }
@@ -300,7 +302,7 @@ input:hover {
     }
 }
 
-@media (height < 1500px) {
+@media (height < 1500px) and (width > 1024px) {
     .title {
         transform: translateY(-70%);
     }
