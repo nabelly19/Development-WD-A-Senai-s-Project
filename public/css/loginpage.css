@@ -156,12 +156,16 @@ input:hover {
 
 .btn-login {
     margin-top: 60px;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     height: 55px;
 }
 
 .btn-login:hover {
     background-color: #501015;
+    color: aliceblue;
+}
+
+.registro{
     color: aliceblue;
 }
 
@@ -308,7 +312,7 @@ input:hover {
     }
 
     .content_form {
-        transform: translateY(22%);
+        transform: translateY(16%);
     }
 
     .subtitle {
