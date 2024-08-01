@@ -1,1 +1,46 @@
 @import url('base.css');
+
+/* MOBILE FIRST */
+
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: auto;
+    min-height: 100vh;
+}
+
+.section1 {
+    width: 100%;
+    min-height: 30vh;
+    height: auto;
+    background: rgb(40, 40, 50);
+    background: linear-gradient(0deg, rgba(40, 40, 50, 1) 0%, rgba(70, 70, 86, 1) 100%);
+    
+}
+
+.section2 {
+    width: 100%;
+    min-height: 100vh;
+    background: var(--branco-secundario);
+    height: auto;
+}
+
+@media (width > 1024px) {
+
+    main {
+        flex-direction: row;
+        width: 100%;
+        min-height: 100vh;
+        height: auto;
+    }
+
+    .section1 {
+        width: 40%;
+    }
+
+    .section2 {
+        width: 60%;
+    }
+
+}

@@ -6,7 +6,7 @@ body {
     background: rgb(40, 40, 50);
     background: linear-gradient(0deg, rgba(40, 40, 50, 1) 0%, rgba(70, 70, 86, 1) 100%) !important;
 }
-
+    
 .nav{
     width: 100vw;
 }
