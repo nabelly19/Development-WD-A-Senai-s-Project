@@ -16,7 +16,34 @@ main {
     height: auto;
     background: rgb(40, 40, 50);
     background: linear-gradient(0deg, rgba(40, 40, 50, 1) 0%, rgba(70, 70, 86, 1) 100%);
-    
+}
+
+.title {
+    margin-top: 50px;
+    font-size: 5rem;
+    text-align: center;
+    color: var(--branco-secundario);
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.subtitle{
+    text-align: center;
+    color: var(--branco-primario);
+}
+
+.content{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 100px;
+    width: 100%;
+}
+
+.btn-registro{
+    margin-top: 50px;
+    height: 60px;
+    width: 40%;
 }
 
 .section2 {
@@ -24,6 +51,18 @@ main {
     min-height: 100vh;
     background: var(--branco-secundario);
     height: auto;
+}
+
+.box-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    border-radius: 15px; /* cantos arredondados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* sombra para dar profundidade */
+    height: 535px;
+    margin: 50px auto;
+    background-color: #B4B4B4
 }
 
 @media (width > 1024px) {
@@ -37,6 +76,11 @@ main {
 
     .section1 {
         width: 40%;
+    }
+
+    .title {
+        font-size: 4rem;
+        transform: translateY(20%);
     }
 
     .section2 {
