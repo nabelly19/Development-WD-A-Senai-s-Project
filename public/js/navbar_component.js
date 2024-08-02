@@ -3,7 +3,7 @@ class Navbar extends HTMLElement {
       this.innerHTML = `
       <nav class=" nav navbar navbar-expand-lg navbar-light bg-light">
           <div class="container-fluid">
-            <a class="navbar-brand" href="./homepage.html"><img src="../public/assets/logo.png"></a>
+            <a class="navbar-brand" href="./homepage.html"><img src="../../public/assets/logo.png"></a>
       
               <button class="navbar-toggler custom-toggler-margin" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
