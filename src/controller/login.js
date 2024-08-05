@@ -1,4 +1,4 @@
-const User = require("../model/user.js");
+const Company = require("../model/company.js");
 const bcrypt = require('bcryptjs')
 
 module.exports = {
@@ -12,22 +12,22 @@ module.exports = {
             return res.render('../views/Login', { erro: true });
 
 
-        const user = await User.findOne({
+        const company = await Company.findOne({
             raw: true,
             attributes: ['id', 'EDV', 'password'],
             where: {
                 EDV: req.body.EDV
             }
         })
-        if (user == null) {
+        if (company == null) {
             return res.render('../views/Login', { erro: true });
         }
-        if (!(await bcrypt.compare(req.body.password, user.password))) {
+        if (!(await bcrypt.compare(req.body.password, company.password))) {
             return res.render('../views/Login', { erro: true });
         }
 
         session = req.session;
-        session.EDV = user.EDV;
+        session.EDV = company.EDV;
 
         // console.log(session)
 
