@@ -2,8 +2,10 @@ const express = require('express');
 const fileUpload = require('express-fileupload');
 const routes = require('./routes');
 const cookieParser = require("cookie-parser");
+const { PrismaClient } = require('@prisma/client');
 const sessions = require('express-session');
 const app = express();
+const prisma = new PrismaClient();
 
 app.use(express.json());
 app.use(express.static('public'));

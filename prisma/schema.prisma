@@ -5,37 +5,48 @@ generator client {
 
 datasource db {
   provider = "sqlserver"
-  url      = env("DATABASE_URL")
+  url = env("DATABASE_URL")
 }
 
 model Company {
-    id Int @id @default(autoincrement())
-    name String
-    CNPJ String 
-    CEP String
-    Rua String
-    Bairro String
-    Cidade String 
-    Estado String 
-    Pais String 
-    Filial Boolean @default(false)
-    DataAbertura DateTime
+  companyID         Int        @id @default(autoincrement())
+  companyName       String
+  companyCNPJ       String     @db.VarChar(14)
+  companyCEP        String     @db.VarChar(8)
+  companyStreet     String     @db.VarChar(255)
+  companyCity       String     @db.VarChar(100)
+  companyState      String     @db.VarChar(100)
+  companyCountry    String     @db.VarChar(100)
+  companyFilial     Boolean    @default(false)
+  companyDateOpened DateTime
+  createdAt         DateTime   @default(now()) @map("createdAt")
+  updatedAt         DateTime   @default(now()) @map("updatedAt")
+
+  TrainingData      TrainingData[]
+  Decision          Decision[]
 }
 
 model TrainingData {
-    id Int @id @default(autoincrement())
-    data String
-    labels String
+  id         Int      @id @default(autoincrement())
+  companyID  Int
+  allData    String
+  labels     String
+  createdAt  DateTime @default(now()) @map("createdAt")
+  
+  Company    Company  @relation(fields: [companyID], references: [companyID])
 }
 
-model MachineLearningModel {
-    id Int @id @default(autoincrement())
-    modelParameters String
+model MLModel {
+  id             Int      @id @default(autoincrement())
+  modelParameters String
+  createdAt      DateTime @default(now()) @map("createdAt")
 }
 
-model Result {
-    id Int @id @default(autoincrement())
-    reason String
-    approved Boolean
-    result String
+model Decision {
+  id        Int      @id @default(autoincrement())
+  companyID Int
+  reason    String
+  createdAt DateTime @default(now()) @map("createdAt")
+  
+  Company   Company  @relation(fields: [companyID], references: [companyID])
 }
