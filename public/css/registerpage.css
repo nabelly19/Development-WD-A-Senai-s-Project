@@ -2,6 +2,10 @@
 
 /* MOBILE FIRST */
 
+span{
+    color: var(--cinza-secundario);
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -55,14 +59,25 @@ main {
 
 .box-container{
     display: flex;
-    justify-content: center;
     align-items: center;
+    flex-direction: column;
     width: 90%;
     border-radius: 15px; /* cantos arredondados */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* sombra para dar profundidade */
     height: 535px;
     margin: 50px auto;
     background-color: #B4B4B4
+}
+
+.title-form-register{
+    display: flex;
+    align-items: center;
+    color: var(--cinza-primario);
+    margin-top: 50px;
+}
+
+.title-form-register h5 {
+    font-weight: bolder;
 }
 
 @media (width > 1024px) {

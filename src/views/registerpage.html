@@ -39,7 +39,7 @@
 
                 </p>
             </div>
-            
+
             <div class="content">
                 <p>explicação para preencher conteúdo</p>
             </div>
@@ -47,17 +47,62 @@
 
         <section class="section2">
             <div class="box-container">
+                <div class="title-form-register">
+                    <h5>Cadastre-se <span>Já</span></h5>
+                </div>
                 <form class="form" action="/" method="post">
-                    <label class="label-geral label-login" for="login">LOGIN</label>
-                    <input class="login" placeholder="Insira seu Login" name="login">
-                    
-                    <label class="label-geral label-login" for="senha">SENHA</label>
+                    <label class="label-geral label-register" for="nameCompany">NOME DA EMPRESA</label>
+                    <input type="text" class="register" placeholder="Nome da Empresa" name="nameCompany"
+                        id="nameCompany">
+
+                    <label class="label-geral label-register" for="CNPJ">CNPJ</label>
+                    <input type="text" class="register" placeholder="CNPJ da organização" name="cnpj" id="cnpj">
+
+                    <label class="label-geral label-register" for="CEP">CEP</label>
+                    <input type="text" class="register" placeholder="CEP da organização" name="cep" id="cep">
+
+                    <label class="label-geral label-register" for="country">PAÍS</label>
+                    <input type="text" class="register" placeholder="País" name="country" id="country">
+
+                    <label class="label-geral label-register" for="state">ESTADO</label>
+                    <input type="text" class="register" placeholder="Estado" name="state" id="state">
+
+                    <label class="label-geral label-register" for="city">CIDADE</label>
+                    <input type="text" class="register" placeholder="Cidade" name="city" id="city">
+
+                    <label class="label-geral label-register" for="neighborhood">BAIRRO</label>
+                    <input type="text" class="register" placeholder="Bairro" name="neighborhood" id="neighborhood">
+
+                    <label class="label-geral label-register" for="street">LOGRADOURO</label>
+                    <input type="text" class="register" placeholder="Logradouro" name="street" id="street">
+
+                    <label class="label-geral label-register" for="number">NÚMERO</label>
+                    <input type="text" class="register" placeholder="Número" name="number" id="number">
+
+                    <label class="label-geral label-register" for="date">DATA ABERTURA</label>
+                    <input type="date" class="register" placeholder="Selecione" name="date" id="date">
+
+                    <label class="label-geral label-register" for="filials">POSSUI FILIAIS</label>
+                    <select class="register" name="filials" id="filials">
+                        <option value="" disabled selected>Selecione</option>
+                        <option value="sim">Sim</option>
+                        <option value="nao">Não</option>
+                    </select>
+
+                    <label class="label-geral label-register" for="senha">SENHA</label>
                     <div class="password_position">
-                        <input type="password" class="login" id="senha" placeholder="Insira sua Senha" name="password">
+                        <input type="password" class="login" id="senha" placeholder="Crie uma Senha" name="password">
                         <i class="bi bi-eye mt-2" id="eye-toggle"></i>
                     </div>
+
+                    <label class="label-geral label-register" for="confirmsenha">CONFIRME A SENHA</label>
+                    <div class="password_position">
+                        <input type="password" class="login" id="confirmsenha" placeholder="Confirme sua Senha" name="confirmsenha">
+                        <i class="bi bi-eye mt-2" id="eye-toggle"></i>
+                    </div>
+
                     <div class="btn-area-second">
-                        <input type="submit" class="btn-login btn-geral" value="REGISTRAR"/>
+                        <input type="submit" class="btn-login btn-geral" value="REGISTRAR" />
                     </div>
                 </form>
             </div>
