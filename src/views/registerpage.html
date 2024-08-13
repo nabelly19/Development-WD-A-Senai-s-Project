@@ -48,7 +48,7 @@
         <section class="section2">
             <div class="box-container">
                 <div class="title-form-register">
-                    <h5>Cadastre-se <span>Já</span></h5>
+                    <h3>Cadastre-se <span>Já</span></h3>
                 </div>
                 <form class="form" action="/" method="post">
                     <label class="label-geral label-register" for="nameCompany">NOME DA EMPRESA</label>
@@ -91,18 +91,18 @@
 
                     <label class="label-geral label-register" for="senha">SENHA</label>
                     <div class="password_position">
-                        <input type="password" class="login" id="senha" placeholder="Crie uma Senha" name="password">
+                        <input type="password" class="register" id="senha" placeholder="Crie uma Senha" name="password">
                         <i class="bi bi-eye mt-2" id="eye-toggle"></i>
                     </div>
 
                     <label class="label-geral label-register" for="confirmsenha">CONFIRME A SENHA</label>
                     <div class="password_position">
-                        <input type="password" class="login" id="confirmsenha" placeholder="Confirme sua Senha" name="confirmsenha">
+                        <input type="password" class="register" id="confirmsenha" placeholder="Confirme sua Senha" name="confirmsenha">
                         <i class="bi bi-eye mt-2" id="eye-toggle"></i>
                     </div>
 
                     <div class="btn-area-second">
-                        <input type="submit" class="btn-login btn-geral" value="REGISTRAR" />
+                        <input type="submit" class="btn-register btn-geral" value="REGISTRAR" />
                     </div>
                 </form>
             </div>
@@ -113,6 +113,7 @@
         <footer-component></footer-component>
     </footer>
 
+    <!-- Scripts -->
     <script src="../../public/js/navbar_logout_component.js"></script>
     <script src="../../public/js/footer_component.js"></script>
     <script src="../../public/js/lines_hover.js"></script>
@@ -120,6 +121,7 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script defer src="{{ url_for('static', filename='js/password.js') }}"></script>
+    <script src="../../public/js/password_eye.js"></script>
 </body>
 
 </html>
