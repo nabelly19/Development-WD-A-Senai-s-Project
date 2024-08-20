@@ -1,3 +1,8 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
   provider = "prisma-client-js"
@@ -5,48 +10,94 @@ generator client {
 
 datasource db {
   provider = "sqlserver"
-  url = env("DATABASE_URL")
+  url      = env("DATABASE_URL")
 }
 
-model Company {
-  companyID         Int        @id @default(autoincrement())
-  companyName       String
-  companyCNPJ       String     @db.VarChar(14)
-  companyCEP        String     @db.VarChar(8)
-  companyStreet     String     @db.VarChar(255)
-  companyCity       String     @db.VarChar(100)
-  companyState      String     @db.VarChar(100)
-  companyCountry    String     @db.VarChar(100)
-  companyFilial     Boolean    @default(false)
-  companyDateOpened DateTime
-  createdAt         DateTime   @default(now()) @map("createdAt")
-  updatedAt         DateTime   @default(now()) @map("updatedAt")
+// Definição dos modelos no Prisma
 
-  TrainingData      TrainingData[]
-  Decision          Decision[]
-}
-
-model TrainingData {
-  id         Int      @id @default(autoincrement())
-  companyID  Int
-  allData    String
-  labels     String
-  createdAt  DateTime @default(now()) @map("createdAt")
+model Empresa {
+  ID            Int        @id @default(autoincrement())
+  Nome          String
+  CNPJ          String      @db.VarChar(20)
+  Possui_Filial Boolean
+  Data_Abertura DateTime?
+  Codigo        String?     @db.VarChar(100)
   
-  Company    Company  @relation(fields: [companyID], references: [companyID])
+  Enderecos     Endereco[]
+  Contatos      Contato[]
+  Matriz        Matriz?
+  Filiais       Filial[]
+  Dados_Treino  Dados_Treino[]
 }
 
-model MLModel {
-  id             Int      @id @default(autoincrement())
-  modelParameters String
-  createdAt      DateTime @default(now()) @map("createdAt")
-}
-
-model Decision {
-  id        Int      @id @default(autoincrement())
-  companyID Int
-  reason    String
-  createdAt DateTime @default(now()) @map("createdAt")
+model Endereco {
+  ID           Int       @id @default(autoincrement())
+  ID_Empresa   Int
+  CEP          String?   @db.VarChar(20)
+  Estado       String?   @db.VarChar(100)
+  Cidade       String?   @db.VarChar(100)
+  Bairro       String?   @db.VarChar(100)
+  Logradouro   String?   @db.VarChar(100)
+  Numero       String?   @db.VarChar(100)
+  Complemento  String?   @db.VarChar(100)
   
-  Company   Company  @relation(fields: [companyID], references: [companyID])
+  Empresa      Empresa   @relation(fields: [ID_Empresa], references: [ID])
+}
+
+model Contato {
+  ID                         Int       @id @default(autoincrement())
+  ID_Empresa                 Int
+  Telefone                   String?   @db.VarChar(100)
+  Codigo_Telefonico_Internacional String? @db.VarChar(100)
+  Email                      String?   @db.VarChar(100)
+  
+  Empresa                    Empresa   @relation(fields: [ID_Empresa], references: [ID])
+}
+
+model Matriz {
+  ID          Int       @id @default(autoincrement())
+  ID_Empresa  Int       @unique
+  E_matriz    Boolean
+  Senha       String    @db.VarChar(100)
+  
+  Empresa     Empresa   @relation(fields: [ID_Empresa], references: [ID])
+}
+
+model Filial {
+  ID          Int       @id @default(autoincrement())
+  ID_Empresa  Int
+  E_filial    Boolean
+  Codigo      String?   @db.VarChar(100)
+  
+  Empresa     Empresa   @relation(fields: [ID_Empresa], references: [ID])
+}
+
+model Dados_Treino {
+  ID          Int       @id @default(autoincrement())
+  ID_Empresa  Int
+  Data        DateTime
+  Rotulos     String?
+  Dados       String?
+  
+  Empresa     Empresa   @relation(fields: [ID_Empresa], references: [ID])
+  Modelos     Modelo_Machine_Learning[]
+}
+
+model Modelo_Machine_Learning {
+  ID          Int       @id @default(autoincrement())
+  ID_Dados    Int
+  Data        DateTime
+  Parametros  String?
+  
+  Dados_Treino Dados_Treino @relation(fields: [ID_Dados], references: [ID])
+  Decisoes    Decisao[]
+}
+
+model Decisao {
+  ID                Int       @id @default(autoincrement())
+  ID_Modelo_ML      Int
+  Data              DateTime
+  Saida             String?
+  
+  Modelo_ML         Modelo_Machine_Learning @relation(fields: [ID_Modelo_ML], references: [ID])
 }
