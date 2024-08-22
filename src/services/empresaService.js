@@ -68,7 +68,7 @@ class EmpresaService {
   }
 
   async updateEmpresa(id, data) {
-    const currentEmpresa = await prisma.empresa,findUnique({
+    const currentEmpresa = await prisma.empresa.findUnique({
       where: {id: parseInt(id)},
       include: { Matriz: true },
     });
