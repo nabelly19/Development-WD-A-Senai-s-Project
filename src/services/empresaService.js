@@ -2,14 +2,13 @@
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
-const session = require('express-session')
-const Sequelize = require('sequelize');
-const Op = Sequelize.Op;
+const { hashPassword } = require('../config/auth');
 
 class EmpresaService {
   async createEmpresa(data) {
     
     const matrizExists = await prisma.matriz.findFirst();
+    const hashedPassword = await hashPassword(data.matriz.Senha)
 
     if (!matrizExists){
       data.matriz = {
@@ -44,7 +43,7 @@ class EmpresaService {
             Matriz: data.matriz ? {
               create: {
                 E_matriz: true,
-                Senha: data.matriz.Senha,
+                Senha: hashedPassword,
               },
             } : undefined,
             Filiais: data.filiais ? {

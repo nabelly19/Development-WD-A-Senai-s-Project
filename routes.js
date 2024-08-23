@@ -1,12 +1,16 @@
 const express = require('express');
-const router = express.Router();
+const routes = express.Router();
 
-const login = require('./src/controllers/login');
+const empresa = require('./src/controller/empresaController')
 
-// router.get('/', home.pagInicialGet);
-router.get('/Login', login.pagLoginGet);
-router.get('/Logout', login.pagLogoutGet);
+routes
+    .post('/add-user', empresa.registrarEmpresa)
+    .get('/empresa/:id', empresa.getEmpresaById)
+    .delete('/Remove-empresa/:id', empresa.deleteEmpresaById)
+    .put('/Update-empresa/:id', empresa.updateEmpresaById)
 
-router.post('/', login.pagLoginPost);
 
-module.exports = router;
+
+    
+
+module.exports = routes;

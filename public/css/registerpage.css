@@ -90,6 +90,17 @@ main {
     width: 100%;
 }
 
+input[disabled] {
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+  }
+
+  .label-checkbox {
+    color: #313131;
+    margin-top: 10px;
+    margin-left: 20px;
+  }
+
 .label-register {
     width: 90%;
     margin-top: 25px;
@@ -118,6 +129,7 @@ input:hover {
     height: 55px;
     color: #111111;
     font-size: 1rem;
+    margin-top: 5px;
 }
 
 .esquecer_senha {
