@@ -1,9 +1,21 @@
-document.getElementById('loginForm').addEventListener('submit', async function(event) {
+document.getElementById('empresaForm').addEventListener('submit', async function(event) {
     event.preventDefault();
   
-    const username = document.getElementById('username').value;
+    const nameCompany = document.getElementById('nameCompany').value;
+    const CNPJ = document.getElementById('cnpj').value;
+    const CEP = document.getElementById('cep').value;
+    const country = document.getElementById('country').value;
+    const state = document.getElementById('state').value;
+    const city = document.getElementById('city').value;
+    const street = document.getElementById('street').value;
+    const neighborhood = document.getElementById('neighborhood').value;
+    const number = document.getElementById('number').value;
+    const complement = document.getElementById('complement').value;
+    const date = document.getElementById('date').value;
+    const filials = document.getElementById('filials').value;
     const password = document.getElementById('password').value;
-  
+    const confirmpassword = document.getElementById('confirmpassword').value;
+
     try {
       const response = await fetch('/api/login', {
         method: 'POST',
