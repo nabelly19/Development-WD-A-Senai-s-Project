@@ -39,19 +39,3 @@ document.getElementById('empresaForm').addEventListener('submit', async function
       alert(error.message);
     }
   });
-  
-  async function fetchEmpresa(id) {
-    const token = localStorage.getItem('token');
-    const response = await fetch(`/api/empresa/${id}`, {
-      headers: {
-        'Authorization': `Bearer ${token}`
-      }
-    });
-  
-    if (response.ok) {
-      const empresa = await response.json();
-      console.log(empresa);
-    } else {
-      alert('Erro ao acessar empresa');
-    }
-  }
