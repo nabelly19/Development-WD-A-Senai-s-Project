@@ -27,13 +27,23 @@ main {
     font-size: 5rem;
     text-align: center;
     color: var(--branco-secundario);
-    font-size: 2rem;
     font-weight: 600;
+    cursor: pointer;
+    transition: font-size 0.3s ease;
+}
+
+.title:hover{
+    font-size: 75px;
 }
 
 .subtitle{
     text-align: center;
     color: var(--branco-primario);
+    margin-top: 45px;
+}
+
+.subtitle h5 {
+    line-height: 1.6; 
 }
 
 .content{
@@ -42,6 +52,25 @@ main {
     flex-direction: column;
     margin-bottom: 100px;
     width: 100%;
+    padding: 5%;
+    color: var(--branco-secundario);
+    text-align: justify;
+    line-height: 1.6; 
+}
+
+.content .topic {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: var(--branco-primario);
+}
+
+.content p {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+strong {
+    color: var(--branco-primario);
 }
 
 .btn-registro{
@@ -77,10 +106,16 @@ main {
     align-items: center;
     color: var(--cinza-primario);
     margin-top: 50px;
+    cursor: pointer;
 }
 
-.title-form-register h3 {
+.title-form-register h2 {
     font-weight: bolder;
+    transition: font-size 0.3s ease;
+}
+
+.title-form-register h2:hover {
+    font-size: 40px;
 }
 
 .form {
@@ -91,7 +126,7 @@ main {
 }
 
 input[disabled] {
-    background-color: #f0f0f0;
+    background-color: #0000006b;
     cursor: not-allowed;
   }
 
@@ -172,6 +207,7 @@ input:hover {
 
 .btn-register{
     width: 100%;
+    height: 55px;
 }
 
 .btn-area-second{
