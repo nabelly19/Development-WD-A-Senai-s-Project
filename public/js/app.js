@@ -24,7 +24,7 @@ document.getElementById('empresaForm').addEventListener('submit', async function
   }
 
     try {
-      const response = await fetch('http://localhost:8080/api/add-user', {
+      const response = await fetch('http://localhost:3000/api/add-user', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
