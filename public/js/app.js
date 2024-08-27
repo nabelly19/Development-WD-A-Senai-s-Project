@@ -1,40 +1,48 @@
 document.getElementById('empresaForm').addEventListener('submit', async function(event) {
     event.preventDefault();
   
-    const nameCompany = document.getElementById('nameCompany').value;
-    const CNPJ = document.getElementById('cnpj').value;
-    const CEP = document.getElementById('cep').value;
-    const country = document.getElementById('country').value;
-    const state = document.getElementById('state').value;
-    const city = document.getElementById('city').value;
-    const street = document.getElementById('street').value;
-    const neighborhood = document.getElementById('neighborhood').value;
-    const number = document.getElementById('number').value;
-    const complement = document.getElementById('complement').value;
-    const date = document.getElementById('date').value;
-    const filials = document.getElementById('filials').value;
-    const password = document.getElementById('password').value;
-    const confirmpassword = document.getElementById('confirmpassword').value;
+    const formRegData = {
+      nameCompany : document.getElementById('nameCompany').value,
+      CNPJ : document.getElementById('cnpj').value,
+      CEP : document.getElementById('cep').value,
+      country : document.getElementById('country').value,
+      state : document.getElementById('state').value,
+      city : document.getElementById('city').value,
+      street : document.getElementById('street').value,
+      neighborhood : document.getElementById('neighborhood').value,
+      number : document.getElementById('number').value,
+      complement : document.getElementById('complement').value,
+      date : document.getElementById('date').value,
+      filials : document.getElementById('filials').value,
+      password : document.getElementById('password').value,
+      confirmpassword : document.getElementById('confirmpassword').value,
+    };
+
+    if (formRegData.password !== formRegData.confirmpassword) {
+      alert('As senhas não coincidem!');
+      return;
+  }
 
     try {
-      const response = await fetch('/api/login', {
+      const response = await fetch('http://localhost:8080/api/add-user', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ username, password })
+        body: JSON.stringify(formRegData),
       });
   
       if (!response.ok) {
-        throw new Error('Login falhou');
+        throw new Error('Registro falhou');
       }
   
       const data = await response.json();
       localStorage.setItem('token', data.token);
-      alert('Login bem-sucedido!');
+
+      alert('Registro bem-sucedido!');
   
       // Redirecionar para a página principal ou dashboard
-      window.location.href = '/views/index.html';
+      window.location.href = '/views/homepage.html';
     } catch (error) {
       alert(error.message);
     }
