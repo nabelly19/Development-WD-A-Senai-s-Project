@@ -34,6 +34,7 @@ model Endereco {
   ID           Int       @id @default(autoincrement())
   ID_Empresa   Int
   CEP          String?   @db.VarChar(20)
+  Pais         String?   @db.VarChar(20)
   Estado       String?   @db.VarChar(100)
   Cidade       String?   @db.VarChar(100)
   Bairro       String?   @db.VarChar(100)

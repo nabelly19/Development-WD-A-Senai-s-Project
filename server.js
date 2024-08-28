@@ -33,6 +33,10 @@ app.get('/', (req, res) => {
   res.render('loginpage', data);
 });
 
+app.get('/register', (req, res) => {
+  res.render('registerpage', { title: 'Registro' });
+});
+
 app.use('/api', routes);
 
 app.listen(3000, () => {
