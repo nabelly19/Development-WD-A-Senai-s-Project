@@ -10,6 +10,8 @@ class EmpresaService {
     const matrizExists = await prisma.matriz.findFirst();
     const hashedPassword = await hashPassword(data.matriz.Senha)
 
+    const uniqueCode = `EMP-${Date.now()}`;
+
     if (!matrizExists){
       data.matriz = {
         E_matriz: true,
@@ -30,7 +32,7 @@ class EmpresaService {
             CNPJ: data.CNPJ,
             Possui_Filial: data.Possui_Filial,
             Data_Abertura: data.Data_Abertura,
-            Codigo: data.Codigo,
+            Codigo: uniqueCode,
             Enderecos: {
                 create: data.Enderecos,
             },
