@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const routes = require('./routes');
 const cookieParser = require("cookie-parser");
@@ -35,6 +36,10 @@ app.get('/', (req, res) => {
 
 app.get('/register', (req, res) => {
   res.render('registerpage', { title: 'Registro' });
+});
+
+app.get('/predict', (req, res) => {
+  res.render('predictpage', { title: 'Nova análise' });
 });
 
 app.use('/api', routes);
