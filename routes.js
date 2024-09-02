@@ -5,7 +5,9 @@ const empresa = require('./src/controller/empresaController');
 const login = require('./src/controller/loginController')
 const { authenticateToken } = require('./src/config/auth');  // Importe o middleware de autenticação
 
-routes.post('/add-user', empresa.registrarEmpresa);
+routes
+   // Rota para registro de empresas (não autenticada)
+routes.post('/add', empresa.registrarEmpresa);
 
 // Rota para login (não autenticada)
 routes.post('/login', login.login);
