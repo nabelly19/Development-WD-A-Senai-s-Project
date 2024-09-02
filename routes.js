@@ -7,7 +7,7 @@ const { authenticateToken } = require('./src/config/auth');  // Importe o middle
 
 routes
    // Rota para registro de empresas (não autenticada)
-routes.post('/add-user', empresa.registrarEmpresa);
+routes.post('/add', empresa.registrarEmpresa);
 
 // Rota para login (não autenticada)
 routes.post('/login', login.login);

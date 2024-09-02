@@ -24,7 +24,7 @@ async function handleRegister(event) {
   }
 
   try {
-    const response = await fetch('http://localhost:3000/api/add-user', {
+    const response = await fetch('http://localhost:3000/api/add', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -55,7 +55,7 @@ async function handleLogin(event) {
   };
 
   try {
-    const response = await fetch('http://localhost:300/api/login', {
+    const response = await fetch('http://localhost:3000/api/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

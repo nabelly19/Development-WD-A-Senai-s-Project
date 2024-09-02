@@ -1,5 +1,5 @@
 const express = require('express');
-const { generateToken, authenticateToken, comparePassword, hashPassword } = require('../config/auth');
+const { generateToken, hashPassword } = require('../config/auth');
 const EmpresaService = require('../services/empresaService');
 const empresaService = new EmpresaService();
 
