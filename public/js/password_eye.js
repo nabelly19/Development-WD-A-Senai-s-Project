@@ -1,7 +1,7 @@
 const hidePassword = document.querySelector('.bi-eye');
 const hidePassword2 = document.querySelector('#eye');
 const hidePassword3 = document.querySelector('#eyetwo');
-const input = document.querySelector('#senha')
+const input = document.querySelector('#password')
 
 hidePassword.addEventListener('click', togglePass);
 

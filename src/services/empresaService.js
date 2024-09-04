@@ -39,9 +39,6 @@ class EmpresaService {
             Contatos: {
                 create: data.Contatos,
             },
-            Dados_Treino: {
-                create: data.Dados_Treino,
-            },
             Matriz: data.matriz ? {
               create: {
                 E_matriz: true,

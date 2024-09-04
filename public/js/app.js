@@ -18,6 +18,8 @@ async function handleRegister(event) {
     confirmpassword : document.getElementById('confirmpassword').value,
   };
 
+  console.log(formRegData)
+
   if (formRegData.password !== formRegData.confirmpassword) {
     alert('As senhas não coincidem!');
     return;
@@ -31,6 +33,8 @@ async function handleRegister(event) {
       },
       body: JSON.stringify(formRegData),
     });
+
+    console.log(response)
 
     if (!response.ok) 
       throw new Error('Registro falhou');
@@ -73,12 +77,15 @@ async function handleLogin(event) {
     alert('Login bem-sucedido!');
     window.location.href = '/views/homepage.ejs';
   } catch (error) {
+    console.error('Fetch error:', error);
     alert(error.message);
   }
 }
 
 document.getElementById('formLogin').addEventListener('submit', handleLogin);
 document.getElementById('empresaForm').addEventListener('submit', handleRegister);
+
+
 
 
    

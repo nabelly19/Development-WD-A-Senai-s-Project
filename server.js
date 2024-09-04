@@ -38,6 +38,10 @@ app.get('/register', (req, res) => {
   res.render('registerpage', { title: 'Registro' });
 });
 
+app.get('/home', (req, res) => {
+  res.render('homepage', { title: 'Registro' });
+});
+
 app.get('/predict', (req, res) => {
   res.render('predictpage', { title: 'Nova análise' });
 });
