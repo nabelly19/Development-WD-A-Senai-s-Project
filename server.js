@@ -46,6 +46,10 @@ app.get('/predict', (req, res) => {
   res.render('predictpage', { title: 'Nova análise' });
 });
 
+app.get('/history', (req, res) => {
+  res.render('historypage', { title: 'Histórico' });
+});
+
 app.use('/api', routes);
 
 app.listen(3000, () => {
