@@ -22,12 +22,10 @@ class EmpresaService {
 
     // Gera um código único para a empresa
     const uniqueCode = `EMP-${Date.now()}`;
-
     const hashedPassword = await hashPassword(data.password);
-
-    const haveFilial = data.filials ? true : false
-
-    const dataAbertura = new Date(data.date)
+    const haveFilial = data.filials ? true : false;
+    const haveComplement = data.complement ? data.complement : "";
+    const dataAbertura = new Date(data.date);
 
     // Prepara o objeto de dados para a criação
     const empresaData = {
@@ -36,7 +34,17 @@ class EmpresaService {
       Possui_Filial: haveFilial,
       Data_Abertura: dataAbertura,
       Codigo: uniqueCode,
-      Enderecos: data.Enderecos ? { create: data.Enderecos } : undefined,
+      Endereco: data.CEP ? {
+        create: [{
+          CEP: data.CEP,
+          Estado: data.state,
+          Cidade: data.city,
+          Bairro: data.neighborhood,
+          Logradouro: data.street,
+          Numero: data.number,
+          Complemento: haveComplement
+        }]
+      } : undefined,
       Contatos: data.Contatos ? { create: data.Contatos } : undefined,
       Matriz: data.matriz && hashedPassword ? {
         create: {
