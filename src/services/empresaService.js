@@ -6,56 +6,60 @@ const { hashPassword } = require('../config/auth');
 
 class EmpresaService {
   async createEmpresa(data) {
-    
+    console.log(data)
     const matrizExists = await prisma.matriz.findFirst();
-    const hashedPassword = await hashPassword(data.matriz.Senha)
 
-    const uniqueCode = `EMP-${Date.now()}`;
-
-    if (!matrizExists){
+    if (!matrizExists) {
       data.matriz = {
         E_matriz: true,
         Senha: data.Senha,
+      };
+    } else {
+      if (data.matriz) {
+        throw new Error('Já existe uma matriz registrada. Esta empresa deve ser uma filial.');
       }
-      data.Possui_Filial = false;
     }
 
-    else {
-      if(data.matriz) {
-        throw new Error('Já existe uma matriz registrada.')
-      }
-    }
+    // Gera um código único para a empresa
+    const uniqueCode = `EMP-${Date.now()}`;
+
+    const hashedPassword = await hashPassword(data.password);
+
+    const haveFilial = data.filials ? true : false
+
+    const dataAbertura = new Date(data.date)
+
+    // Prepara o objeto de dados para a criação
+    const empresaData = {
+      Nome: data.nameCompany,
+      CNPJ: data.CNPJ,
+      Possui_Filial: haveFilial,
+      Data_Abertura: dataAbertura,
+      Codigo: uniqueCode,
+      Enderecos: data.Enderecos ? { create: data.Enderecos } : undefined,
+      Contatos: data.Contatos ? { create: data.Contatos } : undefined,
+      Matriz: data.matriz && hashedPassword ? {
+        create: {
+          E_matriz: true,
+          Senha: hashedPassword,
+        },
+      } : undefined,
+      Filiais: data.filiais ? { create: data.filiais } : undefined,
+    };
+
+    // Log para depuração
+    console.log("Dados para criação de empresa:", empresaData);
 
     const createEmpresa = await prisma.empresa.create({
-        data: {
-            Nome: data.Nome,
-            CNPJ: data.CNPJ,
-            Possui_Filial: data.Possui_Filial,
-            Data_Abertura: data.Data_Abertura,
-            Codigo: uniqueCode,
-            Enderecos: {
-                create: data.Enderecos,
-            },
-            Contatos: {
-                create: data.Contatos,
-            },
-            Matriz: data.matriz ? {
-              create: {
-                E_matriz: true,
-                Senha: hashedPassword,
-              },
-            } : undefined,
-            Filiais: data.filiais ? {
-              create: data.filiais
-            } : undefined,
-        },
+      data: empresaData,
     });
-    return createEmpresa
+
+    return createEmpresa;
   }
 
   async getEmpresaById(id) {
     return prisma.empresa.findUnique({
-      where: {id: parseInt(id)},
+      where: { id: parseInt(id) },
       incluse: {
         Enderecos: true,
         Contatos: true,
@@ -67,13 +71,13 @@ class EmpresaService {
 
   async updateEmpresa(id, data) {
     const currentEmpresa = await prisma.empresa.findUnique({
-      where: {id: parseInt(id)},
+      where: { id: parseInt(id) },
       include: { Matriz: true },
     });
 
     if (currentEmpresa.matriz) {
       if (data.matriz && data.matriz.E_matriz === false) {
-        throw new Error ("Não é permitido desmarcar uma matriz");
+        throw new Error("Não é permitido desmarcar uma matriz");
       }
     }
     else {
@@ -91,7 +95,7 @@ class EmpresaService {
   async deleteEmpresa(id) {
     const empresa = await prisma.empresa.findUnique({
       where: { id: parseInt(id) },
-      include: {Matriz: true},
+      include: { Matriz: true },
     });
 
     if (empresa.matriz) {
@@ -99,7 +103,7 @@ class EmpresaService {
     }
 
     return prisma.empresa.delete({
-      where: { id: parseInt(id)},
+      where: { id: parseInt(id) },
     });
   }
 }

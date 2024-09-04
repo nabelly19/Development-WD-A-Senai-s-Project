@@ -37,7 +37,7 @@ async function handleRegister(event) {
     console.log(response)
 
     if (!response.ok) 
-      throw new Error('Registro falhou');
+      throw new Error('Não foi possível registrar, tente novamente!');
 
     const data = await response.json();
     localStorage.setItem('token', data.token);

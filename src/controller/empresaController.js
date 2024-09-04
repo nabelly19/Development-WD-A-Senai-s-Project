@@ -6,19 +6,22 @@ const empresaService = new EmpresaService();
 module.exports = {
 
   async registrarEmpresa(req, res) {
-  const data = req.body;
-  try {
+    console.log(req.body);
 
-    data.password = await hashPassword(data.password);
+    const data = req.body;
+    try {
 
-    const novaEmpresa = await empresaService.createEmpresa(data);
-    
-    const token = generateToken({ id: novaEmpresa.id, username: novaEmpresa.nameCompany });
+      data.password = await hashPassword(data.password);
 
-    res.status(201).json({novaEmpresa, token});
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
+      const novaEmpresa = await empresaService.createEmpresa(data);
+
+      const token = generateToken({ id: novaEmpresa.id, username: novaEmpresa.nameCompany });
+
+      res.status(201).json({ novaEmpresa, token });
+    } catch (error) {
+      console.error("Erro ao registrar empresa:", error.message);
+      res.status(400).json({ error: error.message });
+    }
   },
 
   async getEmpresaById(req, res) {
