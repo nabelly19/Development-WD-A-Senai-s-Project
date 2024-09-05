@@ -169,6 +169,10 @@ input:hover {
     color: aliceblue;
 }
 
+.registro a:hover{
+    color: rgb(255, 240, 240) !important;
+}
+
 @media (width > 1024px) {
 
     body,

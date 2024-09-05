@@ -45,7 +45,13 @@ class EmpresaService {
           Complemento: haveComplement
         }]
       } : undefined,
-      Contatos: data.Contatos ? { create: data.Contatos } : undefined,
+      Contato: data.phoneCode ? 
+      { create: [{
+          Codigo_Telefonico_Internacional: data.phoneCode,
+          Telefone: data.phone,
+          Email: data.email
+      }]
+      } : undefined,
       Matriz: data.matriz && hashedPassword ? {
         create: {
           E_matriz: true,

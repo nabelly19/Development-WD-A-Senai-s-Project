@@ -46,6 +46,7 @@ model Empresa {
   Endereco      Endereco[]
   Filial        Filial[]
   Matriz        Matriz?
+  
 }
 
 model Endereco {
