@@ -18,7 +18,6 @@ async function fetchAddressByCEP(cep) {
     }
   }
   
-  // Função para preencher os campos de endereço com os dados do ViaCEP
   function fillAddressFields(data) {
     document.getElementById('street').value = data.logradouro || '';
     document.getElementById('neighborhood').value = data.bairro || '';
@@ -26,7 +25,6 @@ async function fetchAddressByCEP(cep) {
     document.getElementById('state').value = data.uf || '';
   }
   
-  // Função para limpar os campos de endereço caso o CEP não seja encontrado
   function clearAddressFields() {
     document.getElementById('street').value = '';
     document.getElementById('neighborhood').value = '';
