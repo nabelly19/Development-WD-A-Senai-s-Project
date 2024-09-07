@@ -182,6 +182,22 @@ input[type="checkbox"].checkbox-custom:checked::before {
     margin-top: 5px;
 }
 
+.form_row{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding-left: 40px;
+    padding-right: 35px;
+}
+
+.form_row label {
+    margin: 10px 10px;
+}
+
+.form_row .label-register {
+    flex: 1; /* Para que os inputs tenham o mesmo tamanho */
+  }
+
 .esquecer_senha {
     display: flex;
     margin-left: 30%;
@@ -276,6 +292,10 @@ input[type="checkbox"].checkbox-custom:checked::before {
     .box-container{
         padding-left: 25px;
         padding-right: 25px;
+    }
+
+    .form_row{
+        display: none;
     }
 
 }

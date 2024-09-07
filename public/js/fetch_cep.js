@@ -45,7 +45,7 @@ async function fetchAddressByCEP(cep) {
   
   // Adicionar evento no campo de CEP
   document.getElementById('cep').addEventListener('input', function () {
-    const cep = this.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+    const cep = this.value.replace(/\D/g, '');
     if (cep.length === 8) {
       fetchAddressByCEP(cep); // Chama a API quando o CEP tem 8 dígitos
     } else {

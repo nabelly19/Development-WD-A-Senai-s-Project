@@ -51,6 +51,12 @@ async function handleRegister(event) {
     showError('cnpj', 'O CNPJ deve ter exatamente 14 dígitos.');
   }
 
+  if (formRegData.CEP.length !== 8) {
+    errors.push('O CEP deve ter exatamente 8 dígitos.');
+    showError('cep', 'O CEP deve ter exatamente 8 dígitos.');
+  }
+
+
   if (formRegData.password !== formRegData.confirmpassword) {
     alert('As senhas não coincidem!');
     return;
