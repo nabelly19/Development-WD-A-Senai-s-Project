@@ -91,11 +91,54 @@ function handleSubmit(event) {
         const filteredData = jsonData.filter(row => row['QC'] == qcValue);
         if (filteredData.length > 0) {
             console.log("Filtered Data:", filteredData[0]);
-            alert(JSON.stringify(filteredData[0]));
+            sendToAPI(filteredData[0]);
         } else {
             alert("Nenhuma linha encontrada para o QC fornecido.");
         }
     };
 
     reader.readAsArrayBuffer(selectedFile);
+}
+
+function sendToAPI(data) {
+    const axios = require('axios');
+    const https = require('https');
+
+    const url = 'http://66080e31-4ba6-4c3c-8cf7-cc9ad8048397.brazilsouth.azurecontainer.io/score';
+    
+    const requestData = {
+        "Inputs": {
+            "data": [data]
+        }
+    };
+    
+    const headers = {
+        'Content-Type': 'application/json'
+    };
+
+    const httpsAgent = new https.Agent({
+        rejectUnauthorized: false
+    });
+
+    axios.post(url, requestData, {
+        headers: headers,
+        httpsAgent: httpsAgent 
+    })
+    .then(response => {
+        console.log('API Response:', response.data);
+        alert('Resposta da API: ' + JSON.stringify(response.data));
+    })
+    .catch(error => {
+        if (error.response) {
+            console.error("Erro da API:", error.response.status);
+            console.error("Detalhes:", error.response.data);
+            alert(`Erro da API: ${error.response.status}`);
+        } else if (error.request) {
+            console.error("Nenhuma resposta da API:", error.request);
+            alert('Nenhuma resposta da API.');
+        } else {
+            console.error('Erro ao configurar a requisição:', error.message);
+            alert('Erro ao configurar a requisição: ' + error.message);
+        }
+    });
 }
