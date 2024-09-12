@@ -40,7 +40,7 @@ model Empresa {
   CNPJ          String         @db.VarChar(20)
   Possui_Filial Boolean
   Data_Abertura DateTime?
-  Codigo        String?        @db.VarChar(100)
+  Codigo        String          @db.VarChar(100) @unique
   Contato       Contato[]
   Dados_Treino  Dados_Treino[]
   Endereco      Endereco[]

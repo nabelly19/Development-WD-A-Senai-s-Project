@@ -21,7 +21,6 @@ function authenticateToken(req, res, next) {
   });
 }
 
-
 async function hashPassword(password) {
   return await bcrypt.hash(password, 10);
 }

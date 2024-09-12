@@ -83,7 +83,7 @@ async function handleRegister(event) {
 
     alert('Registro bem-sucedido!');
     // Redirecionar para a página principal
-    window.location.href = '/views/homepage.ejs';
+    window.location.href = `/homepage.ejs`;
   } catch (error) {
     alert(error.message);
   }
@@ -97,6 +97,8 @@ async function handleLogin(event) {
     password: document.getElementById('password').value,
   };
 
+  console.log(formLoginData);
+
   try {
     const response = await fetch('http://localhost:3000/api/login', {
       method: 'POST',
@@ -106,15 +108,19 @@ async function handleLogin(event) {
       body: JSON.stringify(formLoginData),
     });
 
+    console.log('Status HTTP:', response.status);
+
     if (!response.ok) {
-      throw new Error('Login falhou');
+      throw new Error('Login falhou, tente inserir as credenciais novamente!');
     }
+
+    console.log('Resposta do servidor:', responseData);
 
     const data = await response.json();
     localStorage.setItem('token', data.token);
 
     alert('Login bem-sucedido!');
-    window.location.href = '/views/homepage.ejs';
+    window.location.href = `/homepage.ejs`;
   } catch (error) {
     console.error('Fetch error:', error);
     alert(error.message);
