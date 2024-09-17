@@ -1,4 +1,4 @@
-const { comparePassword, generateToken, hashPassword } = require('../config/auth');
+const { comparePassword, generateToken } = require('../config/auth');
 //prisma connection
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
@@ -23,7 +23,7 @@ class LoginService {
         console.log('Empresa:', empresa);  
         console.log('Senha Matriz:', empresa.Matriz.Senha);  
 
-        const senhaCorreta = await comparePassword(senha, empresa.Matriz.Senha);
+        const senhaCorreta = await comparePassword(senha.trim(), empresa.Matriz.Senha);
 
         console.log("variavel senha correta:",senhaCorreta)
 

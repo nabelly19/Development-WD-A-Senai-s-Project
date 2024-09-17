@@ -20,12 +20,12 @@ class EmpresaService {
       }
     }
 
-    // Gera um código único para a empresa
-    const uniqueCode = `EMP-${Date.now()}`;
+    
+    const haveComplement = data.complement ? data.complement : "";
     const hashedPassword = await hashPassword(data.password);
     const haveFilial = data.filials ? true : false;
-    const haveComplement = data.complement ? data.complement : "";
     const dataAbertura = new Date(data.date);
+    const uniqueCode = `EMP-${Date.now()}`;
 
     // Prepara o objeto de dados para a criação
     const empresaData = {
@@ -52,7 +52,7 @@ class EmpresaService {
           Email: data.email
       }]
       } : undefined,
-      Matriz: data.matriz && hashedPassword ? {
+      Matriz: data.matriz ? {
         create: {
           E_matriz: true,
           Senha: hashedPassword,
