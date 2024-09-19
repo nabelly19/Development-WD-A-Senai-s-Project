@@ -4,6 +4,7 @@ const routes = require('./routes');
 const cookieParser = require("cookie-parser");
 const sessions = require('express-session');
 const path = require('path');
+const { title } = require('process');
 
 const app = express();
 app.use(express.json());
@@ -38,8 +39,12 @@ app.get('/register', (req, res) => {
   res.render('registerpage', { title: 'Registro' });
 });
 
+app.get('/registerfilial', (req, res) => {
+  res.render('registerfilialpage', { title: 'Registro Filial'})
+})
+
 app.get('/home', (req, res) => {
-  res.render('homepage', { title: 'Registro' });
+  res.render('homepage', { title: 'Home Page' });
 });
 
 app.get('/predict', (req, res) => {
