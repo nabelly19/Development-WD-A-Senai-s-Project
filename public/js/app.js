@@ -67,7 +67,7 @@ async function handleRegister(event) {
 
     alert('Registro bem-sucedido!');
     // Redirecionar para a página principal
-    window.location.href = `/homepage.ejs`;
+    window.location.href = `/home`;
   } catch (error) {
     alert(error.message);
   }
@@ -104,7 +104,7 @@ async function handleLogin(event) {
     localStorage.setItem('token', data.token);
 
     alert('Login bem-sucedido!');
-    window.location.href = `/homepage.ejs`;
+    window.location.href = `/home`;
   } catch (error) {
     console.error('Fetch error:', error);
     alert(error.message);
