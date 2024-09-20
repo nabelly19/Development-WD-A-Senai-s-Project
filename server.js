@@ -55,6 +55,10 @@ app.get('/history', (req, res) => {
   res.render('historypage', { title: 'Histórico' });
 });
 
+app.get('/list', (req,res) => {
+  res.render('companylistpage', { title: 'Lista de Filiais'})
+})
+
 app.use('/api', routes);
 
 app.listen(3000, () => {
