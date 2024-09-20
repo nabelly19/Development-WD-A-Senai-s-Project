@@ -7,7 +7,13 @@ const { hashPassword } = require('../config/auth');
 class EmpresaService {
   async createEmpresa(data) {
     console.log(data)
-    const matrizExists = await prisma.matriz.findFirst();
+    const matrizExists = await prisma.matriz.findFirst({
+      where: {
+        Empresa: {
+          CNPJ: data.CNPJ,
+        }
+      }
+    });
 
     if (!matrizExists) {
       data.matriz = {
@@ -16,7 +22,7 @@ class EmpresaService {
       };
     } else {
       if (data.matriz) {
-        throw new Error('Já existe uma matriz registrada. Esta empresa deve ser uma filial.');
+        throw new Error('Já existe uma matriz registrada com esse CNPJ. Esta empresa deve ser uma filial.');
       }
     }
 
@@ -69,6 +75,8 @@ class EmpresaService {
     });
 
     return createEmpresa;
+
+
   }
 
   async getEmpresaById(id) {

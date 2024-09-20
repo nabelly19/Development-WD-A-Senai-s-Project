@@ -6,7 +6,7 @@ const empresaService = new EmpresaService();
 module.exports = {
 
   async registrarEmpresa(req, res) {
-    console.log(req.body);
+    //console.log(req.body);
 
     const data = req.body;
     try {
